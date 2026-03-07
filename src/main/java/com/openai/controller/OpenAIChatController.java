@@ -19,8 +19,8 @@ public class OpenAIChatController{
     }
 
     @GetMapping("/chat")
-    public String chat(@RequestParam String message){
-        return openAIChatService.askToAIStream(message);
+    public String chat(@RequestParam String message,@RequestParam String userName){
+        return openAIChatService.askToAIStream(message,userName);
     }
 
 }
