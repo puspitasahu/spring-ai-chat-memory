@@ -2,25 +2,36 @@ spring:
   application:
     name: spring-openai-demo
 
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/customer-support
+    username: postgres
+    password: admin
+
   ai:
     openai:
       api-key: ${OPEN_API_KEY}
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: ALWAYS
 
 #      chat:
 #        options:
 #          model: GPT-4o mini
-#          temperature : 0.3
-#          max-tokens : 10
-
-
+#          temperature: 0.3
+#          max-tokens: 10
 
 #    ollama:
 #      base-url: http://localhost:11434
 #      chat:
 #        model: llama32
+
 #    chat:
 #      client:
 #        enabled: false
+
 logging:
   level:
     org.springframework.ai.ollama: DEBUG
